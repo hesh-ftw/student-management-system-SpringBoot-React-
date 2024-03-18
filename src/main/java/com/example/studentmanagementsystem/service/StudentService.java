@@ -1,6 +1,7 @@
 package com.example.studentmanagementsystem.service;
 
 import com.example.studentmanagementsystem.exception.studentAlreadyExistException;
+import com.example.studentmanagementsystem.exception.studentNotFoundException;
 import com.example.studentmanagementsystem.model.Student;
 import com.example.studentmanagementsystem.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -34,11 +35,17 @@ public class StudentService implements StudentServiceInterface {
         return studentRepository.findAll() ;
     }
 
-
+    //Update Student
     @Override
     public Student updateStudent(Student student, Long id) {
+        return studentRepository.findById(id).map(st-> {
+            st.setFirstName(student.getFirstName());
+            st.setLastName(student.getLastName());
+            st.setEmail(student.getEmail());
+            st.setDepartment(student.getDepartment());
 
-        return null;
+            return studentRepository.save(st);
+        }).orElseThrow(()-> new studentNotFoundException("sorry! student could not be found")) ;
     }
 
     @Override
