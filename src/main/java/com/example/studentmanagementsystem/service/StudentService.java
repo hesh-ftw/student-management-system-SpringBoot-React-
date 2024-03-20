@@ -52,7 +52,7 @@ public class StudentService implements StudentServiceInterface {
     @Override
     public Student getStudentById(Long id) {
         return studentRepository.findById(id).
-                orElseThrow(()-> new studentNotFoundException("sorry student cannot be found with the id"+ id));
+                orElseThrow(()-> new studentNotFoundException("sorry student cannot be found with the id="+ id));
     }
 
 
@@ -61,7 +61,8 @@ public class StudentService implements StudentServiceInterface {
     public void deleteStudent(Long id) {
         if(!studentRepository.existsById(id)){
             throw new studentNotFoundException("Sorry! student not found");
-        } else studentRepository.deleteById(id);
+        }
+        studentRepository.deleteById(id);
     }
 
     private boolean studentAlreadyExists(String email) {
