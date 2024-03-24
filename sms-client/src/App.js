@@ -21,13 +21,13 @@ function App() {
 
             <tr>
               endeudnenued
-              
+
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              
+              body body body
             </tr>
           </tbody>
 
