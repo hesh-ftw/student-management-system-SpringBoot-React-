@@ -33,6 +33,8 @@ function App() {
 
         </section>
       </table>
+
+      <table><thead>my new table </thead></table>
     </div>
   );
 }
