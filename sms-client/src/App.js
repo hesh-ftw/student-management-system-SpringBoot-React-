@@ -10,11 +10,18 @@ function App() {
 
           <thead>
             <tr>
-              <td>first name</td>
-              <td>last name</td>
-              <td>email</td>
-              <td>department</td>
+              dededde newwwewe
+              exportew
+              exportewew
+              export
+              exportewewwe
 
+
+            </tr>
+
+            <tr>
+              endeudnenued
+              
             </tr>
           </thead>
 
