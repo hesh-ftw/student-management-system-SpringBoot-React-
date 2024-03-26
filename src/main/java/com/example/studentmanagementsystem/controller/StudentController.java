@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:3000")
-// ADD REST CONTROLLERS
+
+
+// ADD REST CONTROLLERSsss
 @Controller
 @RestController
 @RequiredArgsConstructor
 
 
 public class StudentController {
-    private final StudentServiceInterface std; //make reference to the studentSrevice Interface
+    private final StudentServiceInterface std; //make reference to the student Service Interface
 
     // get all students
     @GetMapping("/students")
