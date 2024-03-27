@@ -22,7 +22,7 @@ public class StudentService implements StudentServiceInterface {
 
         //checks the student already exist by email
         if(studentAlreadyExists(student.getEmail())){
-            throw new studentAlreadyExistException(student.getEmail()+ " Already exist");
+            throw new studentAlreadyExistException(student.getEmail()+ "Already exist");
         }
 
         return studentRepository.save(student);
