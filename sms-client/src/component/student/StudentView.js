@@ -9,7 +9,7 @@ const StudentView = () => {
         loadStudents();
     },[]);
 
-    //create the method to laod data from the database
+    //create the function to laod data from the database
     const loadStudents = async()=>{
         const result =await axios.get("http://localhost:8080/students",{
           validateStatus:() => {
@@ -23,7 +23,7 @@ const StudentView = () => {
         
     };
   return (
-    <section>
+    <section className='section'>
       <table className='table table-bordered table-hover'>
         <thead>
             <tr className='text-center'>

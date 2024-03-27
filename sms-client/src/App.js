@@ -5,15 +5,18 @@ import NavBar from "./component/common/NavBar.js";
 import Home from "./Home.js";
 import StudentView from './component/student/StudentView';
 import{BrowserRouter as Router, Routers, Route, Routes} from "react-router-dom";
+import SearchBar from "./component/common/SearchBar.js";
+import AddStudent from "./component/student/AddStudent.js";
 
 function App() {
   return (
     <div className="App">
-      <h2 >welcome to student management system <p></p></h2>
+      
 
       <Router>
-         <NavBar/>
+         <NavBar/> 
         <Routes>
+          
           <Route
               exact 
               path="/" 
@@ -24,6 +27,12 @@ function App() {
               exact 
               path="/view-students" 
               element={<StudentView/>}>
+          </Route>
+
+          <Route
+              exact 
+              path="/add-students" 
+              element={<AddStudent/>}>
           </Route>
         </Routes>
       </Router>
