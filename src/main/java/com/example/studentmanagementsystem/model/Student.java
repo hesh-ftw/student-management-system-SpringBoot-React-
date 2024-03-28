@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
 
+import java.util.Date;
+
 @Entity
 @Setter
 @Getter
@@ -23,8 +25,14 @@ public class Student {
     private String firstName;
     private String lastName;
 
+
+    private String address;
+    private String dob;
     @NaturalId(mutable = true) //declare the modifiable foreign key
     private String email;
-    private String department;
+    private String degree;
+    private String course;
+
+
 
 }
