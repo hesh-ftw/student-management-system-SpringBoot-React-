@@ -12,9 +12,56 @@ code {
     monospace;
 }
 
-.home-title{
-padding-top:250px;
-padding-left: 50px;
-text-align: left;
+
+.container-fluid{
+  color: #111C55;
+  font: bold;
+  font-weight: bold;
+}
+.navbar-nav{
+  color: #111C55;
 }
 
+.custom-btn{
+  border-color: #111C55;
+  color: #111C55;
+}
+
+
+/* ===================landing page CSS======================*/
+
+.home-title{
+  padding-top:250px;
+  padding-left: 50px;
+  text-align: left;
+  position: relative;
+  
+  position: relative; /* Ensure z-index works */
+  z-index: 2;
+  
+  }
+
+
+.landing-image{
+  padding-left: 450px;
+  padding-top: 0;
+  position: absolute;
+
+  position: absolute; /* Position the image relative to the container */
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.landing-image img{
+  width: 1057px;
+  height: 811px;
+
+
+}
+.container{
+  position: relative;
+}
+
+
+/*===============================================*/

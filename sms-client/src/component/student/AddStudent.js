@@ -6,21 +6,24 @@ const AddStudent = () => {
 const[student,setStudents]=useState({
     firstName :'',
     lastName  :'',
-    email :'',
-    department :''
-
+    address: '',
+    dob: '',
+    email: '',
+    degree :'',
+    course :''
 })
 
-const{firstName,lastName,email,department}=student;
+const{firstName,lastName,address,dob,email,degree,course}=student;
 
 const handleinputChange =(e)=>{
     setStudents({...student,[e.targer.name] : e.target.value});
 }
 
   return (
-    <div className='col-sm-8 py-2 px-5 '>
+    <div className='col-sm-8 py-2 px-5'>
         <form>
-            <div className='input-group mb-5'>
+
+            <div className='input-group mb-3'>
                 <label 
                 className='input-group-text'
                 htmlFor='firstName'>
@@ -37,10 +40,10 @@ const handleinputChange =(e)=>{
                 />
             </div>
 
-            <div className='input-group mb-5'>
+            <div className='input-group mb-3'>
                 <label 
                 className='input-group-text'
-                htmlFor='lastname'>
+                htmlFor='lastName'>
                     Last Name
                 </label>
                 <input
@@ -54,15 +57,49 @@ const handleinputChange =(e)=>{
                 />
             </div>
 
-            <div className='input-group mb-5'>
+            <div className='input-group mb-3'>
                 <label 
                 className='input-group-text'
-                htmlFor='email'>
-                    Email
+                htmlFor='address'>
+                    Address
                 </label>
                 <input
                 className='form-control col-sm-6'
-                type='email'
+                type='text'
+                name='address'
+                id='address'
+                required
+                value={address}
+                onChange={(e)=>handleinputChange}
+                />
+            </div>
+            
+            <div className='input-group mb-3'>
+                <label 
+                className='input-group-text'
+                htmlFor='dob'>
+                    Date of birth
+                </label>
+                <input
+                className='form-control col-sm-6'
+                type='text'
+                name='dob'
+                id='dob'
+                required
+                value={dob}
+                onChange={(e)=>handleinputChange}
+                />
+            </div>
+
+            <div className='input-group mb-3'>
+                <label 
+                className='input-group-text'
+                htmlFor='email'>
+                    Email   
+                </label>
+                <input
+                className='form-control col-sm-6'
+                type='text'
                 name='email'
                 id='email'
                 required
@@ -72,42 +109,65 @@ const handleinputChange =(e)=>{
             </div>
 
         
-            <div className='input-group mb-5'>
+            <div className='input-group mb-3'>
                 <label 
                 className='input-group-text'
-                htmlFor='department'>
-                    Department
+                htmlFor='degree'>
+                    Degree
                 </label>
                 <input
                 className='form-control col-sm-6'
                 type='text'
-                name='department'
-                id='department'
+                name='degree'
+                htmlFor='degree'
+                id='degree'
                 required
-                value={department}
+                value={degree}
                 onChange={(e)=>handleinputChange}
                 />
             </div>
 
-        <div>  
-            <div className='col-sm-2'>
-                <button
-                type='submit'
-                className='btn btn-outline-wearing btn-lg'>
-                Save
-                </button>
+            <div className='input-group mb-3'>
+                <label 
+                className='input-group-text'
+                htmlFor='course'>
+                    Course
+                </label>
+                <input
+                className='form-control col-sm-6'
+                type='text'
+                name='course'
+                htmlFor='course'
+                id='course'
+                required
+                value={course}
+                onChange={(e)=>handleinputChange}
+                />
             </div>
 
-            <div className='col-sm-2'>
-                <Link 
-                to={"/view-students"}
-                type='submit'
-                className= "btn btn-outline-wearing btn-lg">
-                cancel
-                </Link>
-            </div>
-           
-         </div>  
+        <div className='Add-btn'>
+
+            <div className='row mb-3'>  
+                <div className='col-sm-2'>
+                    <button
+                    type='submit'
+                    className='btn btn-outline btn-lg border-primary border-custom-btn'>
+                    Save
+                    </button>
+                </div>
+
+                <div className='col-sm-2'>
+                    <Link 
+                    to={"/view-students"}
+                    type='submit'
+                    className= "btn btn-outline btn-lg border-primary border-custom-btn">
+                    cancel
+                    </Link>
+                </div>
+            
+            </div>  
+        </div>
+
 
         </form>
       

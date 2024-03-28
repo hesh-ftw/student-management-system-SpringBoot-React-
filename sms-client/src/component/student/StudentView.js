@@ -24,14 +24,17 @@ const StudentView = () => {
     };
   return (
     <section className='section'>
-      <table className='table table-bordered table-hover'>
+      <table className='table table-bordered table-hover shadow'>
         <thead>
             <tr className='text-center'>
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Address</th>
                 <th>Email</th>
-                <th>Department</th>
+                <th>Date of Birth</th>
+                <th>Degree</th>
+                <th>Course</th>
                 <th colSpan={3}>Actions</th>
             </tr>
         </thead>
@@ -45,8 +48,11 @@ const StudentView = () => {
                     </th>
                    <td>{student.firstName}</td>
                    <td>{student.lastName}</td>
+                   <td>{student.address}</td>
                    <td>{student.email}</td>
-                   <td>{student.department}</td>
+                   <td>{student.dob}</td>
+                   <td>{student.degree}</td>
+                   <td>{student.course}</td>
                    <td className='mx-2'>
                     <button
                       className='btn btn-info'>

@@ -6,7 +6,7 @@ const NavBar = () => {
 <nav className='navv'> 
  <nav className="navbar navbar-expand-lg bg-body-tertiary mb-5">
   <div className="container-fluid">
-    <Link className="navbar-brand" to={"/"}>
+    <Link className="nav-link px-3"  to={"/"}>
     Dashboard
     </Link>
     <button 
@@ -21,13 +21,13 @@ const NavBar = () => {
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page"to={"/view-students"}>
-            View All Students </Link>
+        <li className="nav-item ">
+          <Link className="nav-link px-3" aria-current="page"to={"/view-students"}>
+            View Students </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to={"/add-students"}>
-            Add new Student</Link>
+          <Link className="nav-link px-3" to={"/add-students"}>
+            Add Students</Link>
         </li>
       </ul>
     </div>

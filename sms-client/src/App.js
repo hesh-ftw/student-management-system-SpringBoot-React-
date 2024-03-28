@@ -5,12 +5,11 @@ import NavBar from "./component/common/NavBar.js";
 import Home from "./Home.js";
 import StudentView from './component/student/StudentView';
 import{BrowserRouter as Router, Routers, Route, Routes} from "react-router-dom";
-import SearchBar from "./component/common/SearchBar.js";
 import AddStudent from "./component/student/AddStudent.js";
 
 function App() {
   return (
-    <div className="App">
+    <main className="container mt-5">
       
 
       <Router>
@@ -38,7 +37,7 @@ function App() {
       </Router>
 
 
-    </div>
+    </main>
   );
 }
 
