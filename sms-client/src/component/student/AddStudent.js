@@ -1,9 +1,13 @@
+import axios from 'axios';
 import React, { useState } from 'react'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+
 
 const AddStudent = () => {
 
-const[student,setStudents]=useState({
+
+let navigate= useNavigate();
+const[student,setStudent]=useState({
     firstName :'',
     lastName  :'',
     address: '',
@@ -11,17 +15,25 @@ const[student,setStudents]=useState({
     email: '',
     degree :'',
     course :''
-})
+});
 
 const{firstName,lastName,address,dob,email,degree,course}=student;
 
-const handleinputChange =(e)=>{
-    setStudents({...student,[e.targer.name] : e.target.value});
-}
+const handleInputChange =(e)=>{
+    setStudent({...student,[e.target.name] : e.target.value});
+};
+
+// save student to database 
+const saveStudent=async(e)=>{
+    e.preventDefault();
+    await axios.post("http://localhost:8080/students/add",student);
+navigate("/view-students");
+};
+
 
   return (
     <div className='col-sm-8 py-2 px-5'>
-        <form>
+        <form onSubmit={(e)=> saveStudent(e)}>
 
             <div className='input-group mb-3'>
                 <label 
@@ -31,12 +43,12 @@ const handleinputChange =(e)=>{
                 </label>
                 <input
                 className='form-control col-sm-6'
-                type='text'
+                type="text"
                 name='firstName'
                 id='firstName'
                 required
                 value={firstName}
-                onChange={(e)=>handleinputChange}
+                onChange={(e)=>handleInputChange(e)}
                 />
             </div>
 
@@ -53,7 +65,7 @@ const handleinputChange =(e)=>{
                 id='lastName'
                 required
                 value={lastName}
-                onChange={(e)=>handleinputChange}
+                onChange={(e)=>handleInputChange(e)}
                 />
             </div>
 
@@ -70,7 +82,7 @@ const handleinputChange =(e)=>{
                 id='address'
                 required
                 value={address}
-                onChange={(e)=>handleinputChange}
+                onChange={(e)=>handleInputChange(e)}
                 />
             </div>
             
@@ -87,7 +99,7 @@ const handleinputChange =(e)=>{
                 id='dob'
                 required
                 value={dob}
-                onChange={(e)=>handleinputChange}
+                onChange={(e)=>handleInputChange(e)}
                 />
             </div>
 
@@ -104,7 +116,7 @@ const handleinputChange =(e)=>{
                 id='email'
                 required
                 value={email}
-                onChange={(e)=>handleinputChange}
+                onChange={(e)=>handleInputChange(e)}
                 />
             </div>
 
@@ -123,7 +135,7 @@ const handleinputChange =(e)=>{
                 id='degree'
                 required
                 value={degree}
-                onChange={(e)=>handleinputChange}
+                onChange={(e)=>handleInputChange(e)}
                 />
             </div>
 
@@ -141,38 +153,30 @@ const handleinputChange =(e)=>{
                 id='course'
                 required
                 value={course}
-                onChange={(e)=>handleinputChange}
+                onChange={(e)=>handleInputChange(e)}
                 />
             </div>
 
-        <div className='Add-btn'>
-
-            <div className='row mb-3'>  
-                <div className='col-sm-2'>
+        
+                <div className='formSubmit'>
                     <button
                     type='submit'
-                    className='btn btn-outline btn-lg border-primary border-custom-btn'>
+                    className="btn btn-secondary btn-sm px-5 py-2">
                     Save
                     </button>
-                </div>
-
-                <div className='col-sm-2'>
+              
                     <Link 
                     to={"/view-students"}
                     type='submit'
-                    className= "btn btn-outline btn-lg border-primary border-custom-btn">
+                    className= "btn btn-secondary btn-sm px-5 py-2">
                     cancel
                     </Link>
                 </div>
-            
-            </div>  
-        </div>
-
 
         </form>
       
     </div>
-  )
-}
+  );
+};
 
-export default AddStudent
+export default AddStudent;

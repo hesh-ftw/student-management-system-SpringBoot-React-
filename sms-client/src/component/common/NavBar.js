@@ -7,7 +7,7 @@ const NavBar = () => {
  <nav className="navbar navbar-expand-lg bg-body-tertiary mb-5">
   <div className="container-fluid">
     <Link className="nav-link px-3"  to={"/"}>
-    Dashboard
+    Home
     </Link>
     <button 
     className="navbar-toggler" 
@@ -28,6 +28,11 @@ const NavBar = () => {
         <li className="nav-item">
           <Link className="nav-link px-3" to={"/add-students"}>
             Add Students</Link>
+        </li>
+
+        <li className="nav-item">
+          <Link className="nav-link px-3" to={"/add-course"}>
+            Add Courses</Link>
         </li>
       </ul>
     </div>

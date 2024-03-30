@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import UpdateStudent from './EditStudent';
+import { Link } from 'react-router-dom';
 
 const StudentView = () => {
 
@@ -22,6 +24,17 @@ const StudentView = () => {
         }
         
     };
+
+
+    // delete student function
+
+    const deleteStudent = async(id)=>{
+      await axios.delete(`http://localhost:8080/students/delete/${id}`);
+
+      loadStudents();
+    }
+
+
   return (
     <section className='section'>
       <table className='table table-bordered table-hover shadow'>
@@ -55,21 +68,24 @@ const StudentView = () => {
                    <td>{student.course}</td>
                    <td className='mx-2'>
                     <button
-                      className='btn btn-info'>
+                      className='btn btn-secondary'>
                         View
                     </button>
                     </td>
-                   <td className='mx-2'>
 
-                   <button
-                      className='btn btn-warning'>
+                   <td className='mx-2'>
+                   <Link 
+                      to={`/edit-student/${student.id}`}
+                      className='btn btn-secondary'>
                         update
-                    </button>
+                    </Link>
                    </td>
 
                    <td className='mx-2'>
                    <button
-                      className='btn btn-danger'>
+                      className='btn btn-secondary'
+                      onClick={()=> deleteStudent(student.id)}>
+                    
                         delete
                     </button>
                    </td>

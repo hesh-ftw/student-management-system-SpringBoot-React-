@@ -31,7 +31,7 @@ code {
 /* ===================landing page CSS======================*/
 
 .home-title{
-  padding-top:250px;
+  padding-top:200px;
   padding-left: 50px;
   text-align: left;
   position: relative;
@@ -43,7 +43,7 @@ code {
 
 
 .landing-image{
-  padding-left: 450px;
+  padding-left: 550px;
   padding-top: 0;
   position: absolute;
 
@@ -54,8 +54,8 @@ code {
 }
 
 .landing-image img{
-  width: 1057px;
-  height: 811px;
+  width: 700px;
+  height: 500px;
 
 
 }
@@ -65,3 +65,26 @@ code {
 
 
 /*===============================================*/
+
+
+.btn-secondary {
+  background-color: #111C55; /* Your custom primary color */
+  color: white; /* Text color */
+  border-color: #111C55; /* Border color (optional) */
+  margin-right: 20px;
+}
+
+.custom-secondary {
+  background-color: #111C55; /* Your custom secondary color */
+  color: white; /* Text color */
+  border-color: #111C55; /* Border color (optional) */
+}
+
+
+.formSubmit{
+  margin-top: 10px;
+}
+
+btn submit{
+  margin-top: 10px;
+}
