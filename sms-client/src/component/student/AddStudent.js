@@ -33,6 +33,7 @@ navigate("/view-students");
 
   return (
     <div className='col-sm-8 py-2 px-5'>
+        <h4 className='mt-1 mb-4'> Add new Student </h4>
         <form onSubmit={(e)=> saveStudent(e)}>
 
             <div className='input-group mb-3'>
