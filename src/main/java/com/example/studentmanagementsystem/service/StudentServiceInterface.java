@@ -17,7 +17,4 @@ public interface StudentServiceInterface {
     void deleteStudent(Long id);
 
 
-
-
-
 }

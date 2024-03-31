@@ -36,7 +36,7 @@ public class StudentController {
     }
 
     //update students
-    @PutMapping("/students/update/{id}")
+    @PutMapping("/students/student/update/{id}")
     public Student updateStudent(@RequestBody Student student,@PathVariable Long id){
         return std.updateStudent(student,id);
     }
