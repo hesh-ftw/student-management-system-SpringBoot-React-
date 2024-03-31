@@ -1,5 +1,6 @@
 package com.example.studentmanagementsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Setter
@@ -30,7 +31,8 @@ public class Student {
     private String degree;
     private String course;
 
-    @OneToMany(mappedBy = "student")
-    private Set<Course> courses;
+    @JsonIgnore  // solved recursive serialization, where the Student entity includes a reference to the Course entity
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Course> courses;
 
 }
