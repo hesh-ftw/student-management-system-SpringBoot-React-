@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import UpdateStudent from './EditStudent';
 import { Link } from 'react-router-dom';
+import Search from '../common/Search';
 
 const StudentView = () => {
 
     const [students, setStudents]= useState([]);
-
+    const[search,setSearch] =useState("");
     useEffect(()=>{
         loadStudents();
     },[]);
@@ -36,7 +37,12 @@ const StudentView = () => {
 
 
   return (
-    <section className='section'>
+    <section>
+      <Search  
+      search={search}
+      setSearch={setSearch}
+      />
+      <h4 className='mt-1 mb-4'> View Student List  </h4>
       <table className='table table-bordered table-hover shadow'>
         <thead>
             <tr className='text-center'>
@@ -54,11 +60,14 @@ const StudentView = () => {
 
         <tbody className='text-center'>
             {
-                students.map((student,index)=>(
+                students
+                .filter((student)=>
+                student.id.toString()  //filtering student by id in search bar
+                .includes(search))
+
+                .map((student)=>(
                 <tr key={student.id}>
-                    <th scope="row" key={index}>
-                        {index +1}
-                    </th>
+                    <th scope="row">{student.id}</th>
                    <td>{student.firstName}</td>
                    <td>{student.lastName}</td>
                    <td>{student.address}</td>
