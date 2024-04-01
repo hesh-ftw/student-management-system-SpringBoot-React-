@@ -41,7 +41,7 @@ const ViewCourse = () => {
 
             <div>
                 <Link 
-                    to={"/view-course"}
+                    to={"/view-students"}
                     type='submit'
                     className= "btn btn-secondary btn-sm px-4 py-2 mt-5">
                     cancel
