@@ -4,10 +4,12 @@ import './App.css';
 import NavBar from "./component/common/NavBar.js";
 import Home from "./Home.js";
 import StudentView from './component/student/StudentView';
-import{BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes,Switch } from 'react-router-dom';
 import AddStudent from "./component/student/AddStudent.js";
-import AddCourse from "./component/student/AddCourse.js";
+import AddCourse from "./component/course/AddCourse.js";
 import EditStudent from "./component/student/EditStudent.js";
+import ViewCourse from "./component/course/ViewCourse.js";
+import CourseHistory from "./component/course/CourseHistory.js";
 
 
 function App() {
@@ -45,15 +47,36 @@ function App() {
 
           <Route
               exact 
+              path="/view-Course/:id" 
+              element={<ViewCourse/>}>
+          </Route>
+
+          <Route
+              exact 
               path="/edit-student/:id" 
               element={<EditStudent/>}>
           </Route>
 
+          {/* <Router>
+            <Switch>
+            <Route exact path="/" component={AddCourse} />
+              <Route exact path="/view-course-history" component={CourseHistory} />
+          </Switch>
+          </Router> */}
+
+
+          <Route
+              exact 
+              path="/view-course-history" 
+              element={<CourseHistory/>}>
+          </Route>
+
+ 
         </Routes>
       </Router>
 
-
     </main>
+
   );
 }
 
