@@ -4,10 +4,11 @@ import './App.css';
 import NavBar from "./component/common/NavBar.js";
 import Home from "./Home.js";
 import StudentView from './component/student/StudentView';
-import{BrowserRouter as Router, Routers, Route, Routes} from "react-router-dom";
+import{BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import AddStudent from "./component/student/AddStudent.js";
 import AddCourse from "./component/student/AddCourse.js";
 import EditStudent from "./component/student/EditStudent.js";
+
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
 
           <Route
               exact 
-              path="/add-course" 
+              path="/add-Course" 
               element={<AddCourse/>}>
           </Route>
 

@@ -17,7 +17,7 @@ const EditStudent = () => {
         course :''
     });
     
-    const{firstName,lastName,address,dob,email,degree,course}=student;
+    const{firstName,lastName,address,dob,email,degree}=student;
     
     useEffect(() => {
         loadStudent();
@@ -28,8 +28,7 @@ const EditStudent = () => {
     const loadStudent = async()=>{
         const result =await axios.get(`http://localhost:8080/students/${id}`);
           setStudent(result.data);
-        
-    
+      
     };
     
     const handleInputChange =(e)=>{
@@ -155,25 +154,6 @@ const EditStudent = () => {
                     onChange={(e)=>handleInputChange(e)}
                     />
                 </div>
-    
-                <div className='input-group mb-3'>
-                    <label 
-                    className='input-group-text'
-                    htmlFor='course'>
-                        Course
-                    </label>
-                    <input
-                    className='form-control col-sm-6'
-                    type='text'
-                    name='course'
-                    htmlFor='course'
-                    id='course'
-                    required
-                    value={course}
-                    onChange={(e)=>handleInputChange(e)}
-                    />
-                </div>
-    
             
                     <div className='formSubmit'>
                         <button

@@ -9,7 +9,7 @@ const Search = ({search, setSearch}) => {
         className='form-control'
         type='search'
         role='searchbox'
-        placeholder='sesarch student by ID...'
+        placeholder='search student by ID...'
         value={search}
         onChange={(e)=>
         setSearch(e.target.value)

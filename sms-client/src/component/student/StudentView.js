@@ -53,7 +53,7 @@ const StudentView = () => {
                 <th>Email</th>
                 <th>Date of Birth</th>
                 <th>Degree</th>
-                <th>Course</th>
+                <th>Courses</th>
                 <th colSpan={3}>Actions</th>
             </tr>
         </thead>
@@ -74,12 +74,13 @@ const StudentView = () => {
                    <td>{student.email}</td>
                    <td>{student.dob}</td>
                    <td>{student.degree}</td>
-                   <td>{student.course}</td>
+                   {/* <td>{student.course}</td> */}
                    <td className='mx-2'>
-                    <button
+                    <Link
+                    to={`/view-course/${student.id}`}
                       className='btn btn-secondary'>
                         View
-                    </button>
+                    </Link>
                     </td>
 
                    <td className='mx-2'>
