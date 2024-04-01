@@ -41,8 +41,12 @@ public class StudentService implements StudentServiceInterface {
         return studentRepository.findById(id).map(st-> {
             st.setFirstName(student.getFirstName());
             st.setLastName(student.getLastName());
+            st.setAddress(student.getAddress());
+            st.setDob(student.getDob());
             st.setEmail(student.getEmail());
-            st.setDepartment(student.getDepartment());
+            st.setDegree(student.getDegree());
+
+
 
             return studentRepository.save(st);
         }).orElseThrow(()-> new studentNotFoundException("sorry! student could not be found")) ;
@@ -68,4 +72,5 @@ public class StudentService implements StudentServiceInterface {
     private boolean studentAlreadyExists(String email) {
         return studentRepository.findByEmail(email).isPresent();
     }
+
 }
