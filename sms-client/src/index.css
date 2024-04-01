@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.container-fluid{
+  color: #111C55;
+  font: bold;
+  font-weight: bold;
+}
+.navbar-nav{
+  color: #111C55;
+}
+
+.custom-btn{
+  border-color: #111C55;
+  color: #111C55;
+}
+
+
+/* ===================landing page CSS======================*/
+
+.home-title{
+  padding-top:200px;
+  padding-left: 50px;
+  text-align: left;
+  position: relative;
+  
+  position: relative; /* Ensure z-index works */
+  z-index: 2;
+  
+  }
+
+
+.landing-image{
+  padding-left: 550px;
+  padding-top: 0;
+  position: absolute;
+
+  position: absolute; /* Position the image relative to the container */
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.landing-image img{
+  width: 700px;
+  height: 500px;
+
+
+}
+.container{
+  position: relative;
+}
+
+
+/*===============================================*/
+
+
+.btn-secondary {
+  background-color: #111C55; /* Your custom primary color */
+  color: white; /* Text color */
+  border-color: #111C55; /* Border color (optional) */
+  margin-right: 20px;
+}
+
+.custom-secondary {
+  background-color: #111C55; /* Your custom secondary color */
+  color: white; /* Text color */
+  border-color: #111C55; /* Border color (optional) */
+}
+
+
+.formSubmit{
+  margin-top: 10px;
+}
+
+btn submit{
+  margin-top: 10px;
+}
