@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import axios from 'axios';
 
 const AddCourse = () => {
+    let navigate= useNavigate();
+    const[studentId, setStudentId] = useState('');
     const[course,setCourse]=useState({
         courseName :'',
         courseCode  :'',
@@ -10,14 +13,45 @@ const AddCourse = () => {
     
     const{courseName,courseCode,description}=course;
     
-    const handleinputChange =(e)=>{
-        setCourse({...course,[e.targer.name] : e.target.value});
+    const handleInputChange =(e)=>{
+        setCourse({...course,[e.target.name] : e.target.value});
     }
+
+// add course to students 
+const addNewCourse = async (e) => {
+    e.preventDefault();
+    try {
+        await axios.post(`http://localhost:8080/add-course/${studentId}`, course);
+        navigate("/view-students");
+    } catch (error) {
+        // Handle errors
+        console.error("Error adding new course:", error);
+        // Optionally, set an error state to display a message to the user
+    }
+};
+
   return (
     
     <div className='col-sm-8 py-2 px-5'>
         <h4 className='mt-1 mb-4'> Add new courses to students  </h4>
-        <form>
+        <form onSubmit={(e)=> addNewCourse(e)}>
+
+        <div className='input-group mb-3'>
+                <label 
+                className='input-group-text'
+                htmlFor='studentId'>
+                    Student ID
+                </label>
+                <input
+                className='form-control col-sm-6'
+                type='int'
+                name='studentId'
+                id='studentId'
+                required
+                value={studentId}
+                onChange={(e)=>setStudentId(e.target.value)}
+                />
+            </div>
 
             <div className='input-group mb-3'>
                 <label 
@@ -32,7 +66,7 @@ const AddCourse = () => {
                 id='courseName'
                 required
                 value={courseName}
-                onChange={(e)=>handleinputChange}
+                onChange={(e)=>handleInputChange(e)}
                 />
             </div>
 
@@ -49,7 +83,7 @@ const AddCourse = () => {
                 id='courseCode'
                 required
                 value={courseCode}
-                onChange={(e)=>handleinputChange}
+                onChange={(e)=>handleInputChange(e)}
                 />
             </div>
 
@@ -66,7 +100,7 @@ const AddCourse = () => {
                 id='description'
                 required
                 value={description}
-                onChange={(e)=>handleinputChange}
+                onChange={(e)=>handleInputChange(e)}
                 />
             </div>
 
@@ -90,5 +124,6 @@ const AddCourse = () => {
     </div>
   )
 }
+
 
 export default AddCourse
