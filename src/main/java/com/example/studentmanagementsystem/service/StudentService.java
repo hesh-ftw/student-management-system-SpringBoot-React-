@@ -45,7 +45,7 @@ public class StudentService implements StudentServiceInterface {
             st.setDob(student.getDob());
             st.setEmail(student.getEmail());
             st.setDegree(student.getDegree());
-            st.setCourse(student.getCourse());
+
 
 
             return studentRepository.save(st);
@@ -72,4 +72,5 @@ public class StudentService implements StudentServiceInterface {
     private boolean studentAlreadyExists(String email) {
         return studentRepository.findByEmail(email).isPresent();
     }
+
 }

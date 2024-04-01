@@ -29,7 +29,7 @@ public class Student {
     @NaturalId(mutable = true) //declare the modifiable foreign key
     private String email;
     private String degree;
-    private String course;
+
 
     @JsonIgnore  // solved recursive serialization, where the Student entity includes a reference to the Course entity
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
