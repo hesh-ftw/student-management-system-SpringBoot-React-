@@ -55,4 +55,28 @@ public class CourseService {
         return result;
     }
 
+
+    //get course history details from course table
+    public List<CourseRequest> getCourseHistory() {
+        List<Course> courses = courseRepository.findAll();
+        return courses.stream()
+                .map(this::mapToCourseRequest)
+                .collect(Collectors.toList());
+    }
+
+
+    public CourseRequest mapToCourseRequest(Course course) {
+        CourseRequest courseRequest = new CourseRequest();
+
+        // Map course attributes to courseRequest attributes
+
+        courseRequest.setStudentId(course.getStudent().getId());
+        courseRequest.setCourseName(course.getCourseName());
+        courseRequest.setCourseCode(course.getCourseCode());
+        courseRequest.setDescription(course.getDescription());
+
+        return courseRequest;
+    }
+
+
 }

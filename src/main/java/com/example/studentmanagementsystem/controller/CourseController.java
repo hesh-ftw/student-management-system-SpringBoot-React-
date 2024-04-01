@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000") // Allow requests from frontend
 public class CourseController {
 
     @Autowired
@@ -29,6 +30,14 @@ public class CourseController {
     @GetMapping("/view-courses/{studentId}")
     public ResponseEntity<List<CourseRequest>> getCoursesByStudentId(@PathVariable Long studentId) {
         List<CourseRequest> courses = courseService.getCoursesByStudentId(studentId);
+        return ResponseEntity.ok(courses);
+    }
+
+
+    //get all courses
+    @GetMapping("/view-courses")
+    public ResponseEntity<List<CourseRequest>> getCourseHistory() {
+        List<CourseRequest> courses = courseService.getCourseHistory();
         return ResponseEntity.ok(courses);
     }
 }
