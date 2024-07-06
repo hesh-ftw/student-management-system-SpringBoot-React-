@@ -1,12 +1,14 @@
 package com.example.studentmanagementsystem.controller;
 
 import com.example.studentmanagementsystem.DTO.AdminDTO;
+import com.example.studentmanagementsystem.DTO.AdminLoginDTO;
+import com.example.studentmanagementsystem.Response.LoginResponse;
 import com.example.studentmanagementsystem.service.AdminServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/admins")
 @CrossOrigin(origins = "http://localhost:3000")
 public class AdminController {
 
@@ -15,8 +17,16 @@ public class AdminController {
 
     @PostMapping("/AdminRegister")
     public String SaveAdmin(@RequestBody AdminDTO adminDTO){
-        String id= adminService.AddAdmin(adminDTO);
+        String id= adminService.AdminRegister(adminDTO);
 
         return id;
     }
+
+    @GetMapping("/AdminLogin")
+    public ResponseEntity<?> AdminLogin(@RequestBody AdminLoginDTO adminloginDTO){
+        LoginResponse loginMessage= adminService.adminLogin(adminloginDTO);
+
+        return ResponseEntity.ok(loginMessage);
+    }
+
 }
