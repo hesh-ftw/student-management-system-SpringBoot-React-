@@ -31,7 +31,7 @@ code {
 /* ===================landing page CSS======================*/
 
 .home-title{
-  padding-top:200px;
+  padding-top:170px;
   padding-left: 50px;
   text-align: left;
   position: relative;
@@ -44,10 +44,10 @@ code {
 
 .landing-image{
   padding-left: 550px;
-  padding-top: 0;
-  position: absolute;
+  padding-top: 30;
+  margin-top: 80px;
 
-  position: absolute; /* Position the image relative to the container */
+  position: absolute; 
   top: 0;
   left: 0;
   z-index: 1;
@@ -87,4 +87,139 @@ code {
 
 btn submit{
   margin-top: 10px;
+}
+
+
+
+/*==================== sign up ===========================*/
+/* src/App.css */
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form div {
+  margin: 10px 0;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input {
+  padding: 5px;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #093d4b;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+button:hover {
+  background-color: #032b44;
+}
+
+
+/* styles - SignUp.js */
+
+.AdminRegistrationForm{
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+.btn-AdminRegister{
+
+    top: 330px;
+    position: absolute;
+    left: 0;
+    border-radius: 8px;
+
+}
+
+.signinLink{
+margin-top: 75px;
+color: #032b44;
+}
+
+
+.animation-container {
+  position: absolute;
+  flex: 10;
+  display: flex;
+ 
+  margin-left: 600px;
+  margin-top: 190px;
+
+  left: -100px; 
+  top: -100px;
+}
+
+
+
+/* styles - SignIn.js */
+
+.signinForm{
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+.signinButtons{
+  margin-left: -155px;
+
+}
+
+
+.AdminSignin, .AdminSigninCancel {
+  padding: 10px 20px;
+  color: white;
+  background-color: #032b44;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  margin: 5px;
+}
+
+.AdminSignin:hover, .AdminSigninCancel:hover {
+  background-color: #032b44;
+}
+
+
+/* styles - logout button */
+.logoutnav{
+  margin-left: 650px;
+}
+.logouticon{
+  margin-left: 10px;
+}
+
+.smsIcon{
+  margin-left: 10px;
 }
