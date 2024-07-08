@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import {Link, useNavigate} from "react-router-dom";
+import NavBar from '../common/NavBar';
 
 
 const AddStudent = () => {
-
 
 let navigate= useNavigate();
 const[student,setStudent]=useState({
@@ -32,7 +32,11 @@ navigate("/view-students");
 
 
   return (
+<div>
+    <NavBar/>
     <div className='col-sm-8 py-2 px-5'>
+        
+        
         <h4 className='mt-1 mb-4'> Add new Student </h4>
         <form onSubmit={(e)=> saveStudent(e)}>
 
@@ -177,6 +181,7 @@ navigate("/view-students");
         </form>
       
     </div>
+</div> 
   );
 };
 
