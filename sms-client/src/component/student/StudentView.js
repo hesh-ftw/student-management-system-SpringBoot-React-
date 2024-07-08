@@ -3,6 +3,7 @@ import axios from 'axios';
 import UpdateStudent from './EditStudent';
 import { Link } from 'react-router-dom';
 import Search from '../common/Search';
+import NavBar from '../common/NavBar';
 
 const StudentView = () => {
 
@@ -38,6 +39,7 @@ const StudentView = () => {
 
   return (
     <section>
+      <NavBar/>
       <Search  
       search={search}
       setSearch={setSearch}
