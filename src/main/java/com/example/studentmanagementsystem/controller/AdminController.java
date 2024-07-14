@@ -22,7 +22,7 @@ public class AdminController {
         return id;
     }
 
-    @GetMapping("/AdminLogin")
+    @PostMapping("/AdminLogin")
     public ResponseEntity<?> AdminLogin(@RequestBody AdminLoginDTO adminloginDTO){
         LoginResponse loginMessage= adminService.adminLogin(adminloginDTO);
 
