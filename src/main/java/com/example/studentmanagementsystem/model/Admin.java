@@ -23,13 +23,13 @@ public class Admin {
 
     private String encodePassword;
 
-    public Admin(Long adminId, String password, String email, String firstName, String lastName , String encodePassword) {
+    public Admin(Long adminId, String password, String email, String firstName, String lastName, String encodePassword) {
         AdminId = adminId;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.encodePassword=encodePassword;
+        this.encodePassword = encodePassword;
     }
 
     public Admin() {
@@ -78,5 +78,13 @@ public class Admin {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEncodePassword() {
+        return encodePassword;
+    }
+
+    public void setEncodePassword(String encodePassword) {
+        this.encodePassword = encodePassword;
     }
 }
