@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 @Service
 public class AdminService implements AdminServiceInterface {
@@ -22,24 +24,30 @@ public class AdminService implements AdminServiceInterface {
 
     @Override
     public String AdminRegister(AdminDTO adminDTO) {
+        String rawPassword;
+        String encodePww;
         Admin admin = new Admin(
+
                 adminDTO.getAdminId(),
-                adminDTO.getPassword(),
+                rawPassword = adminDTO.getPassword(),
                 adminDTO.getEmail(),
                 adminDTO.getFirstName(),
                 adminDTO.getLastName(),
-                this.passwordEncoder.encode(adminDTO.getPassword())
+
+               encodePww= passwordEncoder.encode(rawPassword)
         );
+
+        admin.setPassword(encodePww);
 
         adminRepository.save(admin);
 
         return admin.getEmail();
-
     }
 
+    AdminDTO adminDTO;
 
-    public LoginResponse adminLogin(AdminLoginDTO adminloginDTO){
 
+    public LoginResponse adminLogin(AdminLoginDTO adminloginDTO) {
         // Check if the email is available in the database
         Admin admin1 = adminRepository.findByEmail(adminloginDTO.getEmail());
 
@@ -48,6 +56,7 @@ public class AdminService implements AdminServiceInterface {
             String encodePw = admin1.getPassword();
 
             // Print debug statements
+            System.out.println("Entered Email: " + adminloginDTO.getEmail());
             System.out.println("Entered Password: " + password);
             System.out.println("Stored Encoded Password: " + encodePw);
 
@@ -58,14 +67,31 @@ public class AdminService implements AdminServiceInterface {
             System.out.println("Is Password Right: " + isPwRight);
 
             if (isPwRight) {
-                return new LoginResponse("Login successful", true);
+                Optional<Admin> adminOptional = adminRepository.findOneByEmailAndPassword(adminloginDTO.getEmail(), encodePw);
+
+                // Check if the adminOptional is present
+                if (adminOptional.isPresent()) {
+                    System.out.println("Admin found with matching email and password.");
+                    return new LoginResponse("Login successful", true);
+                } else {
+                    System.out.println("Admin not found with matching email and password.");
+                    return new LoginResponse("Password does not match", false);
+                }
             } else {
+                System.out.println("Password does not match the encoded password.");
                 return new LoginResponse("Password does not match", false);
             }
         } else {
+            System.out.println("Email not found in the database.");
             return new LoginResponse("Email does not match", false);
         }
     }
+
+
+
+
+
+
 
 
 }
