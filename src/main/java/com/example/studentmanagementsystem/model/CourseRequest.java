@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class CourseRequest {
+    private Long id;
     private Long studentId;
     private String courseName;
     private String description;
