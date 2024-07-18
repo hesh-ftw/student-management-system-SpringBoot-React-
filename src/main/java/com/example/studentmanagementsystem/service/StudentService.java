@@ -49,7 +49,7 @@ public class StudentService implements StudentServiceInterface {
 
 
             return studentRepository.save(st);
-        }).orElseThrow(()-> new studentNotFoundException("sorry! student could not be found")) ;
+        }).orElseThrow(()-> new studentNotFoundException("sorry!! student could not be found")) ;
     }
 
     //find student by id

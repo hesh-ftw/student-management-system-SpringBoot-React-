@@ -48,6 +48,7 @@ public class CourseService {
 
     private CourseRequest convertToRequest(Course course) {
         CourseRequest result = new CourseRequest();
+        result.setId(course.getId());
         result.setStudentId(course.getStudent().getId());
         result.setCourseName(course.getCourseName());
         result.setCourseCode(course.getCourseCode());
@@ -79,4 +80,16 @@ public class CourseService {
     }
 
 
+//    //delete course by id
+//    public void deleteCourse(Long CourseId) {
+//        courseRepository.deleteById(CourseId);
+//    }
+// delete course by its unique id
+@Transactional
+public void deleteCourseById(Long courseId) {
+    Course course = courseRepository.findById(courseId)
+            .orElseThrow(() -> new IllegalArgumentException("Course not found"));
+    courseRepository.delete(course);
 }
+}
+

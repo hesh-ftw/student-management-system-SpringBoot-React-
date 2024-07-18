@@ -34,10 +34,17 @@ public class CourseController {
     }
 
 
-    //get all courses
+    //view all courses history
     @GetMapping("/view-courses")
     public ResponseEntity<List<CourseRequest>> getCourseHistory() {
         List<CourseRequest> courses = courseService.getCourseHistory();
         return ResponseEntity.ok(courses);
     }
+
+    @DeleteMapping("/course/delete/{courseId}")
+    public ResponseEntity<Void> deleteCourse(@PathVariable Long courseId) {
+        courseService.deleteCourseById(courseId);
+        return ResponseEntity.noContent().build();
+    }
+
 }
