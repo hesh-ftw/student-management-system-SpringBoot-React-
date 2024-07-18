@@ -24,6 +24,13 @@ public class AdminService implements AdminServiceInterface {
 
     @Override
     public String AdminRegister(AdminDTO adminDTO) {
+
+        Admin admin2 = adminRepository.findByEmail(adminDTO.getEmail());
+        if(admin2 != null){
+            throw new IllegalArgumentException("Email already exists");
+
+        }
+
         String rawPassword;
         String encodePww;
         Admin admin = new Admin(
@@ -43,8 +50,6 @@ public class AdminService implements AdminServiceInterface {
 
         return admin.getEmail();
     }
-
-    AdminDTO adminDTO;
 
 
     public LoginResponse adminLogin(AdminLoginDTO adminloginDTO) {
