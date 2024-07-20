@@ -1,14 +1,14 @@
 package com.example.studentmanagementsystem.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
+
+import java.util.List;
 
 @Entity
 @Setter
@@ -23,8 +23,16 @@ public class Student {
     private String firstName;
     private String lastName;
 
+
+    private String address;
+    private String dob;
     @NaturalId(mutable = true) //declare the modifiable foreign key
     private String email;
-    private String department;
+    private String degree;
+
+
+    @JsonIgnore  // solved recursive serialization, where the Student entity includes a reference to the Course entity
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Course> courses;
 
 }
