@@ -10,27 +10,39 @@ import AddCourse from "./component/course/AddCourse.js";
 import EditStudent from "./component/student/EditStudent.js";
 import ViewCourse from "./component/course/ViewCourse.js";
 import CourseHistory from "./component/course/CourseHistory.js";
+import SignUp from "./component/Admin/SignUp.js";
+import SignIn from "./component/Admin/SignIn.js";
 
 
 function App() {
   return (
     <main className="container mt-5">
-      
-
       <Router>
-         <NavBar/> 
         <Routes>
-          
-          <Route
+            <Route
+              exact path="/AdminRegister" element={<SignUp/>}>
+          </Route>
+        </Routes>
+
+        <Routes>
+            <Route
+              exact path="/AdminSignin" element={<SignIn/>}>
+          </Route>
+        </Routes>
+    
+        <Routes>
+
+         <Route
               exact 
-              path="/" 
+              path="/Home" 
+
               element={<Home/>}>
           </Route>
-
+        
           <Route
               exact 
               path="/view-students" 
-              element={<StudentView/>}>
+              element={<StudentView/> }>
           </Route>
 
           <Route
@@ -74,6 +86,8 @@ function App() {
  
         </Routes>
       </Router>
+
+      
 
     </main>
 

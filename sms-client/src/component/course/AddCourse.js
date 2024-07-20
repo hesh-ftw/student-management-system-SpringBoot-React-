@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {Link, useNavigate} from "react-router-dom";
 import axios from 'axios';
+import NavBar from '../common/NavBar';
 
 const AddCourse = () => {
     let navigate= useNavigate();
@@ -31,7 +32,8 @@ const addNewCourse = async (e) => {
 };
 
   return (
-    
+   <div>
+    <NavBar/>
     <div className='col-sm-8 py-2 px-5'>
         <h4 className='mt-1 mb-4'> Add new courses to students  </h4>
         <form onSubmit={(e)=> addNewCourse(e)}>
@@ -131,7 +133,7 @@ const addNewCourse = async (e) => {
         </div>
     
     </div>
-
+</div> 
     
   )
 }
